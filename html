@@ -1,0 +1,1909 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scoffee - Zero-Waste Sustainable Coffee</title>
+    <style>
+        /* Global Styles */
+        :root {
+            --primary: #3a5a40;
+            --secondary: #588157;
+            --accent: #a3b18a;
+            --light: #dad7cd;
+            --dark: #344e41;
+            --ocean: #4a7c9b;
+            --text: #333333;
+            --background: #f5f5f5;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--background);
+        }
+        
+        a {
+            text-decoration: none;
+            color: var(--dark);
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background: var(--dark);
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        /* Header */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .logo span {
+            color: var(--secondary);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+        
+        .mobile-menu {
+            display: none;
+            cursor: pointer;
+        }
+        
+        .cart-icon {
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            font-weight: bold;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600"><rect width="800" height="600" fill="%233a5a40"/><path d="M0,200 Q200,150 400,200 T800,200 L800,600 L0,600 Z" fill="%23588157"/></svg>');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 120px 0;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        
+        /* Innovation Section */
+        .innovation {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .innovation-container {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .innovation-img {
+            flex: 1;
+            position: relative;
+            height: 400px;
+            background-color: var(--ocean);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .innovation-content {
+            flex: 1;
+        }
+        
+        .section-title {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+        
+        .innovation-content p {
+            margin-bottom: 20px;
+        }
+        
+        .feature-list {
+            margin: 30px 0;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+        
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background-color: var(--light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        /* How It Works Section */
+        .how-it-works {
+            padding: 80px 0;
+            background-color: var(--light);
+            text-align: center;
+        }
+        
+        .steps-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            flex-wrap: wrap;
+        }
+        
+        .step {
+            flex: 1;
+            min-width: 250px;
+            margin: 20px;
+            padding: 30px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        
+        .step-number {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+        }
+        
+        .step-icon {
+            width: 80px;
+            height: 80px;
+            background-color: var(--light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+        
+        .step-title {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        /* About Section */
+        .about {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .about-container {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .about-img {
+            flex: 1;
+            position: relative;
+            height: 400px;
+            background-color: var(--accent);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .about-content {
+            flex: 1;
+        }
+        
+        .about-content p {
+            margin-bottom: 20px;
+        }
+        
+        /* Products Section */
+        .products {
+            padding: 80px 0;
+            background-color: var(--light);
+        }
+        
+        .products-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .product-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .product-img {
+            height: 200px;
+            background-color: var(--secondary);
+            position: relative;
+        }
+        
+        .product-details {
+            padding: 20px;
+        }
+        
+        .product-title {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        
+        .product-description {
+            margin-bottom: 15px;
+            color: #666;
+        }
+        
+        .product-price {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .product-options {
+            margin-bottom: 15px;
+        }
+        
+        .option-title {
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        
+        .coating-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .coating-option {
+            display: flex;
+            align-items: center;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 8px 12px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .coating-option:hover {
+            border-color: var(--primary);
+        }
+        
+        .coating-option.selected {
+            border-color: var(--primary);
+            background-color: rgba(58, 90, 64, 0.1);
+        }
+        
+        .coating-option img, .coating-option-img {
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+            border-radius: 50%;
+            background-color: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            color: white;
+        }
+        
+        .coating-option span {
+            font-size: 0.9rem;
+        }
+        
+        .coating-price {
+            font-size: 0.8rem;
+            color: var(--primary);
+            font-weight: 600;
+            margin-left: 5px;
+        }
+        
+        /* Sustainability Section */
+        .sustainability {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .sustainability-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .sustainability-icons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 50px;
+            margin: 40px 0;
+        }
+        
+        .sustainability-icon {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 200px;
+        }
+        
+        .icon-circle {
+            width: 100px;
+            height: 100px;
+            background-color: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .icon-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        
+        /* Testimonials Section */
+        .testimonials {
+            padding: 80px 0;
+            background-color: var(--light);
+        }
+        
+        .testimonials-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .testimonials-slider {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .testimonial {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        /* Call to Action */
+        .cta {
+            padding: 80px 0;
+            background-color: var(--primary);
+            color: white;
+            text-align: center;
+        }
+        
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .cta p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Team Section */
+        .team {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .team-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .team-member {
+            background-color: var(--light);
+            border-radius: 10px;
+            overflow: hidden;
+            text-align: center;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .member-img {
+            width: 120px;
+            height: 120px;
+            background-color: var(--accent);
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--dark);
+        }
+        
+        .member-role {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        .member-email {
+            font-size: 0.9rem;
+            color: var(--text);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 20px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-col h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: var(--light);
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-col ul li a {
+            color: #ccc;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-col ul li a:hover {
+            color: white;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            background-color: var(--secondary);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #ccc;
+            font-size: 0.9rem;
+        }
+        
+        /* Cart Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            overflow-y: auto;
+        }
+        
+        .modal-content {
+            background-color: white;
+            margin: 50px auto;
+            max-width: 800px;
+            width: 90%;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            position: relative;
+            animation: modalFadeIn 0.3s ease;
+        }
+        
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .modal-header {
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .modal-title {
+            font-size: 1.5rem;
+            color: var(--dark);
+        }
+        
+        .close-modal {
+            font-size: 1.8rem;
+            font-weight: 700;
+            cursor: pointer;
+            color: #888;
+            line-height: 1;
+        }
+        
+        .close-modal:hover {
+            color: var(--dark);
+        }
+        
+        .modal-body {
+            padding: 20px;
+        }
+        
+        .cart-items {
+            margin-bottom: 30px;
+        }
+        
+        .cart-item {
+            display: flex;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .cart-item-img {
+            width: 80px;
+            height: 80px;
+            background-color: var(--accent);
+            border-radius: 8px;
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .cart-item-details {
+            flex: 1;
+        }
+        
+        .cart-item-title {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+        
+        .cart-item-coating {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 5px;
+        }
+        
+        .cart-item-price {
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        .cart-item-quantity {
+            display: flex;
+            align-items: center;
+            margin: 0 20px;
+        }
+        
+        .quantity-btn {
+            width: 30px;
+            height: 30px;
+            background-color: var(--light);
+            border: none;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        .quantity-input {
+            width: 40px;
+            height: 30px;
+            text-align: center;
+            margin: 0 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        .cart-item-remove {
+            color: #ff5252;
+            cursor: pointer;
+            font-size: 1.2rem;
+            margin-left: 10px;
+        }
+        
+        .cart-summary {
+            background-color: var(--light);
+            padding: 20px;
+            border-radius: 8px;
+        }
+        
+        .cart-subtotal, .cart-shipping, .cart-total {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        
+        .cart-total {
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        .checkout-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            text-align: center;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .checkout-btn:hover {
+            background-color: var(--dark);
+        }
+        
+        .empty-cart-message {
+            text-align: center;
+            padding: 30px 0;
+            color: #888;
+            font-style: italic;
+        }
+        
+        /* Checkout Form */
+        .checkout-form {
+            display: none;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .form-row .form-group {
+            flex: 1;
+        }
+        
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+            background-color: white;
+        }
+        
+        .back-to-cart {
+            background-color: transparent;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        .back-to-cart:hover {
+            background-color: rgba(58, 90, 64, 0.1);
+        }
+        
+        /* Order Confirmation */
+        .order-confirmation {
+            display: none;
+            text-align: center;
+            padding: 30px 20px;
+        }
+        
+        .order-confirmation svg {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 20px;
+        }
+        
+        .order-confirmation h2 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .order-confirmation p {
+            margin-bottom: 15px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .order-number {
+            font-weight: 700;
+            color: var(--dark);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .innovation-container, .about-container {
+                flex-direction: column;
+            }
+            
+            .innovation-img, .about-img {
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background-color: white;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: left 0.3s ease;
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .nav-links li {
+                margin: 15px 0;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .cart-item {
+                flex-wrap: wrap;
+            }
+            
+            .cart-item-quantity {
+                margin: 10px 0;
+            }
+            
+            .form-row {
+                flex-direction: column;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .modal-content {
+                margin: 20px auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">S<span>coffee</span></a>
+                <ul class="nav-links">
+                    <li><a href="#innovation">Innovation</a></li>
+                    <li><a href="#how-it-works">Process</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#sustainability">Sustainability</a></li>
+                    <li><a href="#team">Team</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="cart-icon" id="cart-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9 22C9.55228 22 10 21.5523 10 21C10 20.4477 9.55228 20 9 20C8.44772 20 8 20.4477 8 21C8 21.5523 8.44772 22 9 22Z" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M20 22C20.5523 22 21 21.5523 21 21C21 20.4477 20.5523 20 20 20C19.4477 20 19 20.4477 19 21C19 21.5523 19.4477 22 20 22Z" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M1 1H5L7.68 14.39C7.77144 14.8504 8.02191 15.264 8.38755 15.5583C8.75318 15.8526 9.2107 16.009 9.68 16H19.4C19.8693 16.009 20.3268 15.8526 20.6925 15.5583C21.0581 15.264 21.3086 14.8504 21.4 14.39L23 6H6" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span class="cart-count" id="cart-count">0</span>
+                </div>
+                <div class="mobile-menu">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3 12H21" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M3 6H21" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M3 18H21" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Revolutionary Zero-Waste Coffee</h1>
+                <p>Introducing Scoffee: Premium coffee grounds in dissolving sugar coating with seaweed packaging that disappears when brewed, leaving behind only delicious coffee and natural fertilizer.</p>
+                <a href="#products" class="btn">Shop Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Innovation Section -->
+    <section id="innovation" class="innovation">
+        <div class="container">
+            <div class="innovation-container">
+                <div class="innovation-img">
+                    <!-- SVG animation of dissolving packaging -->
+                    <svg width="100%" height="100%" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="400" height="400" fill="#4a7c9b" />
+                        <!-- Coffee cup -->
+                        <path d="M150,120 L250,120 L270,320 L130,320 Z" fill="#dad7cd" />
+                        <!-- Seaweed packaging dissolving animation -->
+                        <g class="seaweed-package">
+                            <rect x="130" y="120" width="140" height="200" fill="#3a5a40" opacity="0.8">
+                                <animate attributeName="opacity" values="0.8;0.6;0.4;0.2;0" dur="5s" repeatCount="indefinite" />
+                                <animate attributeName="height" values="200;180;150;100;50;0" dur="5s" repeatCount="indefinite" />
+                            </rect>
+                        </g>
+                        <!-- Coffee -->
+                        <rect x="150" y="150" width="100" height="170" fill="#5c4033" />
+                        <!-- Steam -->
+                        <path d="M180,100 Q190,80 200,100 Q210,80 220,100" stroke="white" stroke-width="3" fill="none">
+                            <animate attributeName="d" values="M180,100 Q190,80 200,100 Q210,80 220,100;M180,90 Q190,60 200,90 Q210,60 220,90;M180,100 Q190,80 200,100 Q210,80 220,100" dur="3s" repeatCount="indefinite" />
+                        </path>
+                    </svg>
+                </div>
+                <div class="innovation-content">
+                    <h2 class="section-title">Revolutionary Packaging Innovation</h2>
+                    <p>At Scoffee, we've created something truly revolutionary: premium coffee grounds in packaging that completely dissolves when brewed.</p>
+                    <p>Our innovative packaging is made from seaweed and our grounds coated with your choice of xylitol or sugar that dissolves in hot water, leaving behind zero waste. Even better, the seaweed acts as a natural fertilizer for your plants!</p>
+                    
+                    <div class="feature-list">
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M22 11.08V12C21.9988 14.1564 21.3005 16.2547 20.0093 17.9818C18.7182 19.709 16.9033 20.9725 14.8354 21.5839C12.7674 22.1953 10.5573 22.1219 8.53447 21.3746C6.51168 20.6273 4.78465 19.2461 3.61096 17.4371C2.43727 15.628 1.87979 13.4881 2.02168 11.3363C2.16356 9.18455 2.99721 7.13631 4.39828 5.49706C5.79935 3.85781 7.69279 2.71537 9.79619 2.24013C11.8996 1.7649 14.1003 1.98232 16.07 2.85999" stroke="#344e41" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M22 4L12 14.01L9 11.01" stroke="#344e41" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3>Zero Waste</h3>
+                                <p>Our coating completely dissolves, leaving absolutely no waste behind. Also, the seaweed helps plants around the area.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="#344e41" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M2 12H22" stroke="#344e41" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M12 2C14.5013 4.73835 15.9228 8.29203 16 12C15.9228 15.708 14.5013 19.2616 12 22C9.49872 19.2616 8.07725 15.708 8 12C8.07725 8.29203 9.49872 4.73835 12 2Z" stroke="#344e41" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3>Eco-Friendly</h3>
+                                <p>Made from sustainable seaweed that doubles as a natural plant fertilizer.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M18 8H19C20.0609 8 21.0783 8.42143 21.8284 9.17157C22.5786 9.92172 23 10.9391 23 12C23 13.0609 22.5786 14.0783 21.8284 14.8284C21.0783 15.5786 20.0609 16 19 16H18" stroke="#344e41" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M2 8H18V17C18 18.0609 17.5786 19.0783 16.8284 19.8284C16.0783 20.5786 15.0609 21 14 21H6C4.93913 21 3.92172 20.5786 3.17157 19.8284C2.42143 19.0783 2 18.0609 2 17V8Z" stroke="#344e41" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M6 1V4" stroke="#344e41" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M10 1V4" stroke="#344e41" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M14 1V4" stroke="#344e41" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3>Convenient</h3>
+                                <p>Simply drop 1 pod into hot water - no measuring, no waste.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="#how-it-works" class="btn">See How It Works</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">How It Works</h2>
+            <p>Our revolutionary dissolving coffee packaging makes brewing delicious coffee easier and more sustainable than ever.</p>
+            
+            <div class="steps-container">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17 8H19C20.0609 8 21.0783 8.42143 21.8284 9.17157C22.5786 9.92172 23 10.9391 23 12C23 13.0609 22.5786 14.0783 21.8284 14.8284C21.0783 15.5786 20.0609 16 19 16H17" stroke="#344e41" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M1 8H17V17C17 18.0609 16.5786 19.0783 15.8284 19.8284C15.0783 20.5786 14.0609 21 13 21H5C3.93913 21 2.92172 20.5786 2.17157 19.8284C1.42143 19.0783 1 18.0609 1 17V8Z" stroke="#344e41" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="step-title">Choose Your Coffee</h3>
+                    <p>Select from our range of premium, sustainably sourced coffee grounds in our innovative seaweed packaging.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 2H6C4.93913 2 3.92172 2.42143 3.17157 3.17157C2.42143 3.92172 2 4.93913 2 6V18C2 19.0609 2.42143 20.0783 3.17157 20.8284C3.92172 21.5786 4.93913 22 6 22H18C19.0609 22 20.0783 21.5786 20.8284 20.8284C21.5786 20.0783 22 19.0609 22 18V6C22 4.93913 21.5786 3.92172 20.8284 3.17157C20.0783 2.42143 19.0609 2 18 2H16" stroke="#344e41" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M12 19C15.866 19 19 15.866 19 12C19 8.13401 15.866 5 12 5C8.13401 5 5 8.13401 5 12C5 15.866 8.13401 19 12 19Z" stroke="#344e41" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="step-title">Drop In Hot Water</h3>
+                    <p>Simply drop the entire pod into hot water. No need to open it or measure - just drop it in!</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 6V22H23V6" stroke="#344e41" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M23 6H1C1 4.93913 1.42143 3.92172 2.17157 3.17157C2.92172 2.42143 3.93913 2 5 2H19C20.0609 2 21.0783 2.42143 21.8284 3.17157C22.5786 3.92172 23 4.93913 23 6Z" stroke="#344e41" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M10 10H14" stroke="#344e41" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="step-title">Watch It Dissolve</h3>
+                    <p>Your choice of coating (xylitol or sugar) dissolves first, releasing the coffee grounds.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="#344e41" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M8 14C8 14 9.5 16 12 16C14.5 16 16 14 16 14" stroke="#344e41" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M9 9H9.01" stroke="#344e41" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M15 9H15.01" stroke="#344e41" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="step-title">Enjoy & Compost</h3>
+                    <p>Enjoy your delicious coffee! Remember to stay brewed with purpose.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="products">
+        <div class="container">
+            <div class="products-header">
+                <h2 class="section-title">Our Sustainable Coffee Selection</h2>
+                <p>Choose from our range of premium, ethically sourced coffee grounds in revolutionary dissolving coating.</p>
+            </div>
+            <div class="products-grid">
+                <!-- Product 1 -->
+                <div class="product-card" data-product-id="1" data-product-name="Rainforest Blend" data-product-price="119.99">
+                    <div class="product-img">
+                        <!-- SVG coffee bag illustration -->
+                        <svg width="100%" height="100%" viewBox="0 0 280 200" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="280" height="200" fill="#588157" />
+                            <rect x="70" y="30" width="140" height="160" rx="10" fill="#dad7cd" />
+                            <text x="140" y="100" font-family="Arial" font-size="18" text-anchor="middle" fill="#344e41">RAINFOREST</text>
+                            <text x="140" y="120" font-family="Arial" font-size="14" text-anchor="middle" fill="#344e41">BLEND</text>
+                            <circle cx="140" cy="70" r="20" fill="#344e41" />
+                            <!-- Seaweed texture -->
+                            <path d="M70,30 Q90,40 70,50 Q90,60 70,70 Q90,80 70,90 Q90,100 70,110 Q90,120 70,130 Q90,140 70,150 Q90,160 70,170 Q90,180 70,190" stroke="#4a7c9b" stroke-width="3" stroke-opacity="0.5" fill="none" />
+                            <path d="M210,30 Q190,40 210,50 Q190,60 210,70 Q190,80 210,90 Q190,100 210,110 Q190,120 210,130 Q190,140 210,150 Q190,160 210,170 Q190,180 210,190" stroke="#4a7c9b" stroke-width="3" stroke-opacity="0.5" fill="none" />
+                        </svg>
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-title">Rainforest Blend (contains 35 pods)</h3>
+                        <p class="product-description">A rich, full-bodied blend with notes of dark chocolate and caramel. Sourced from shade-grown coffee in Colombia.</p>
+                        <p class="product-price">HK$119.99</p>
+                        
+                        <div class="product-options">
+                            <p class="option-title">Choose Your Coating:</p>
+                            <div class="coating-options">
+                                <div class="coating-option" data-coating="sugar" data-coating-price="4.99">
+                                    <div class="coating-option-img" style="background-color: #D4A76A;">Su</div>
+                                    <span>Sugar <span class="coating-price">+HK$4.99</span></span>
+                                </div>
+                                <div class="coating-option" data-coating="xylitol" data-coating-price="4.99">
+                                    <div class="coating-option-img" style="background-color: #F0F0F0;">Xy</div>
+                                    <span>Xylitol (Sugar-Free) <span class="coating-price">+HK$4.99</span></span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button class="btn add-to-cart-btn">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="product-card" data-product-id="2" data-product-name="Mountain Reserve" data-product-price="129.99">
+                    <div class="product-img">
+                        <!-- SVG coffee bag illustration -->
+                        <svg width="100%" height="100%" viewBox="0 0 280 200" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="280" height="200" fill="#588157" />
+                            <rect x="70" y="30" width="140" height="160" rx="10" fill="#dad7cd" />
+                            <text x="140" y="100" font-family="Arial" font-size="18" text-anchor="middle" fill="#344e41">MOUNTAIN</text>
+                            <text x="140" y="120" font-family="Arial" font-size="14" text-anchor="middle" fill="#344e41">RESERVE</text>
+                            <circle cx="140" cy="70" r="20" fill="#344e41" />
+                            <!-- Seaweed texture -->
+                            <path d="M70,30 Q90,40 70,50 Q90,60 70,70 Q90,80 70,90 Q90,100 70,110 Q90,120 70,130 Q90,140 70,150 Q90,160 70,170 Q90,180 70,190" stroke="#4a7c9b" stroke-width="3" stroke-opacity="0.5" fill="none" />
+                            <path d="M210,30 Q190,40 210,50 Q190,60 210,70 Q190,80 210,90 Q190,100 210,110 Q190,120 210,130 Q190,140 210,150 Q190,160 210,170 Q190,180 210,190" stroke="#4a7c9b" stroke-width="3" stroke-opacity="0.5" fill="none" />
+                        </svg>
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-title">Mountain Reserve (36 pods)</h3>
+                        <p class="product-description">A smooth, medium roast with bright acidity and notes of citrus and honey. Grown at high altitudes in Ethiopia.</p>
+                        <p class="product-price">HK$129.99</p>
+                        
+                        <div class="product-options">
+                            <p class="option-title">Choose Your Coating:</p>
+                            <div class="coating-options">
+                                <div class="coating-option" data-coating="sugar" data-coating-price="4.99">
+                                    <div class="coating-option-img" style="background-color: #D4A76A;">Su</div>
+                                    <span>Sugar <span class="coating-price">+HK$4.99</span></span>
+                                </div>
+                                <div class="coating-option" data-coating="xylitol" data-coating-price="4.99">
+                                    <div class="coating-option-img" style="background-color: #F0F0F0;">Xy</div>
+                                    <span>Xylitol (Sugar-Free) <span class="coating-price">+HK$4.99</span></span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button class="btn add-to-cart-btn">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product-card" data-product-id="3" data-product-name="Pacific Sunrise" data-product-price="124.99">
+                    <div class="product-img">
+                        <!-- SVG coffee bag illustration -->
+                        <svg width="100%" height="100%" viewBox="0 0 280 200" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="280" height="200" fill="#588157" />
+                            <rect x="70" y="30" width="140" height="160" rx="10" fill="#dad7cd" />
+                            <text x="140" y="100" font-family="Arial" font-size="18" text-anchor="middle" fill="#344e41">PACIFIC</text>
+                            <text x="140" y="120" font-family="Arial" font-size="14" text-anchor="middle" fill="#344e41">SUNRISE</text>
+                            <circle cx="140" cy="70" r="20" fill="#344e41" />
+                            <!-- Seaweed texture -->
+                            <path d="M70,30 Q90,40 70,50 Q90,60 70,70 Q90,80 70,90 Q90,100 70,110 Q90,120 70,130 Q90,140 70,150 Q90,160 70,170 Q90,180 70,190" stroke="#4a7c9b" stroke-width="3" stroke-opacity="0.5" fill="none" />
+                            <path d="M210,30 Q190,40 210,50 Q190,60 210,70 Q190,80 210,90 Q190,100 210,110 Q190,120 210,130 Q190,140 210,150 Q190,160 210,170 Q190,180 210,190" stroke="#4a7c9b" stroke-width="3" stroke-opacity="0.5" fill="none" />
+                        </svg>
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-title">Pacific Sunrise (40 pods)</h3>
+                        <p class="product-description">A light, floral roast with notes of jasmine and berries. Sustainably grown in the highlands of Papua New Guinea.</p>
+                        <p class="product-price">HK$124.99</p>
+                        
+                        <div class="product-options">
+                            <p class="option-title">Choose Your Coating:</p>
+                            <div class="coating-options">
+                                <div class="coating-option" data-coating="sugar" data-coating-price="4.99">
+                                    <div class="coating-option-img" style="background-color: #D4A76A;">Su</div>
+                                    <span>Sugar <span class="coating-price">+HK$4.99</span></span>
+                                </div>
+                                <div class="coating-option" data-coating="xylitol" data-coating-price="4.99">
+                                    <div class="coating-option-img" style="background-color: #F0F0F0;">Xy</div>
+                                    <span>Xylitol (Sugar-Free) <span class="coating-price">+HK$4.99</span></span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button class="btn add-to-cart-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sustainability Section -->
+    <section id="sustainability" class="sustainability">
+        <div class="container">
+            <div class="sustainability-container">
+                <h2 class="section-title">Our Commitment to Sustainability</h2>
+                <p>At Scoffee, sustainability isn't just a buzzword--it's at the core of everything we do. Here's how we're making a difference:</p>
+                
+                <div class="sustainability-icons">
+                    <!-- Icon 1 -->
+                    <div class="sustainability-icon">
+                        <div class="icon-circle">
+                            <!-- SVG leaf icon -->
+                            <svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M6.5 12.5C8.5 10.5 12 7 20 7C20 15 16.5 18.5 14.5 20.5M6.5 12.5L3 16M6.5 12.5L14.5 20.5M14.5 20.5L11 17" stroke="#344e41" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3 class="icon-title">Zero Waste Packaging</h3>
+                        <p>Our seaweed packaging is completely biodegradable. It even helps your plants in ways that you may not even realise!</p>
+                    </div>
+                    
+                    <!-- Icon 2 -->
+                    <div class="sustainability-icon">
+                        <div class="icon-circle">
+                            <!-- SVG water icon -->
+                            <svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2.69L17.66 8.35C18.7793 9.46861 19.5413 10.8761 19.8509 12.4078C20.1604 13.9396 20.0042 15.5289 19.4034 16.9619C18.8026 18.395 17.7871 19.6021 16.4782 20.4267C15.1694 21.2513 13.6266 21.6566 12.0633 21.5913C10.5 21.526 8.99658 20.9933 7.76541 20.0679C6.53424 19.1425 5.62872 17.8664 5.1435 16.4139C4.65828 14.9615 4.61064 13.3962 5.00776 11.9179C5.40487 10.4396 6.22753 9.11661 7.36 8.1" stroke="#344e41" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3 class="icon-title">Water Conservation</h3>
+                        <p>Our farming partners use water-saving techniques that use 60% less water than conventional methods.</p>
+                    </div>
+                    
+                    <!-- Icon 3 -->
+                    <div class="sustainability-icon">
+                        <div class="icon-circle">
+                            <!-- SVG people icon -->
+                            <svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M17 21V19C17 17.9391 16.5786 16.9217 15.8284 16.1716C15.0783 15.4214 14.0609 15 13 15H5C3.93913 15 2.92172 15.4214 2.17157 16.1716C1.42143 16.9217 1 17.9391 1 19V21" stroke="#344e41" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M9 11C11.2091 11 13 9.20914 13 7C13 4.79086 11.2091 3 9 3C6.79086 3 5 4.79086 5 7C5 9.20914 6.79086 11 9 11Z" stroke="#344e41" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M23 21V19C22.9993 18.1137 22.7044 17.2528 22.1614 16.5523C21.6184 15.8519 20.8581 15.3516 20 15.13" stroke="#344e41" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M16 3.13C16.8604 3.35031 17.623 3.85071 18.1676 4.55232C18.7122 5.25392 19.0078 6.11683 19.0078 7.005C19.0078 7.89318 18.7122 8.75608 18.1676 9.45769C17.623 10.1593 16.8604 10.6597 16 10.88" stroke="#344e41" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3 class="icon-title">Fair Trade</h3>
+                        <p>We pay premium prices to farmers, ensuring they receive fair compensation for their work.</p>
+                    </div>
+                </div>
+                
+                <p>For every bag of Scoffee sold and brewed, YOU make an impact on our future generations.</p>
+                <a href="#" class="btn">Read Our Impact Report</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="testimonials-header">
+                <h2 class="section-title">What Our Customers Say</h2>
+            </div>
+            <div class="testimonials-slider">
+                <div class="testimonial">
+                    <p class="testimonial-text">"I was skeptical about the dissolving coating at first but me coffee tastes amazing. Would brew again 10/10"</p>
+                    <p class="testimonial-author">- Leo M. - Loyal Customer</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="team">
+        <div class="container">
+            <div class="team-header">
+                <h2 class="section-title">Meet Our Team</h2>
+                <p>The innovative minds behind Scoffee's revolutionary sustainable coffee solution.</p>
+            </div>
+            <div class="team-grid">
+                <!-- Team Member 1 -->
+                <div class="team-member">
+                    <div class="member-img">CEO</div>
+                    <h3 class="member-role">Chief Executive Officer</h3>
+                    <p class="member-email">wangw5@wis.edu.hk</p>
+                </div>
+                
+                <!-- Team Member 2 -->
+                <div class="team-member">
+                    <div class="member-img">CMO</div>
+                    <h3 class="member-role">Marketing Director</h3>
+                    <p class="member-email">mcnail1@wis.edu.hk</p>
+                </div>
+                
+                <!-- Team Member 3 -->
+                <div class="team-member">
+                    <div class="member-img">HSO</div>
+                    <h3 class="member-role">Head of Sustainability</h3>
+                    <p class="member-email">tsangc16@wis.edu.hk</p>
+                </div>
+                
+                <!-- Team Member 4 -->
+                <div class="team-member">
+                    <div class="member-img">CBO</div>
+                    <h3 class="member-role">Branding Officer</h3>
+                    <p class="member-email">hernej2@wis.edu.hk</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta">
+        <div class="container">
+            <h2>Join the Zero-Waste Coffee Revolution</h2>
+            <p>Experience the rich taste of our ethically sourced coffee while making a positive impact on the planet. With our innovative dissolving packaging, you can enjoy premium coffee with absolutely zero waste.</p>
+            <a href="#products" class="btn">Shop Now</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>Scoffee</h3>
+                    <p>Revolutionary zero-waste coffee for a better world. Every cup makes a difference.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Shop</h3>
+                    <ul>
+                        <li><a href="#products">All Products</a></li>
+                        <li><a href="#">Subscriptions</a></li>
+                        <li><a href="#">Gift Sets</a></li>
+                        <li><a href="#">Brewing Equipment</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Learn</h3>
+                    <ul>
+                        <li><a href="#innovation">Our Innovation</a></li>
+                        <li><a href="#sustainability">Sustainability</a></li>
+                        <li><a href="#">Brewing Guides</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li>Email: wangw5@wis.edu.hk, hernej2@wis.edu.hk, mcnail1@wis.edu.hk, tsangc16@wis.edu.hk</li>
+                        <li>Phone: 91706507</li>
+                        <li>Address: Hong Kong WIS</li>
+                    </ul>
+                    <div class="social-links">
+                        <a href="#" class="social-icon">
+                            <!-- SVG Facebook icon -->
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M18 2H15C13.6739 2 12.4021 2.52678 11.4645 3.46447C10.5268 4.40215 10 5.67392 10 7V10H7V14H10V22H14V14H17L18 10H14V7C14 6.73478 14.1054 6.48043 14.2929 6.29289C14.4804 6.10536 14.7348 6 15 6H18V2Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <!-- SVG Instagram icon -->
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M17 2H7C4.23858 2 2 4.23858 2 7V17C2 19.7614 4.23858 22 7 22H17C19.7614 22 22 19.7614 22 17V7C22 4.23858 19.7614 2 17 2Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M16 11.37C16.1234 12.2022 15.9813 13.0522 15.5938 13.799C15.2063 14.5458 14.5932 15.1514 13.8416 15.5297C13.0901 15.9079 12.2385 16.0396 11.4078 15.9059C10.5771 15.7723 9.80977 15.3801 9.21485 14.7852C8.61993 14.1902 8.22774 13.4229 8.09408 12.5922C7.96042 11.7615 8.09208 10.9099 8.47034 10.1584C8.8486 9.40685 9.4542 8.79374 10.201 8.40624C10.9478 8.01874 11.7978 7.87659 12.63 8C13.4789 8.12588 14.2649 8.52146 14.8717 9.1283C15.4785 9.73515 15.8741 10.5211 16 11.37Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M17.5 6.5H17.51" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <!-- SVG Twitter icon -->
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M23 3C22.0424 3.67548 20.9821 4.19211 19.86 4.53C19.2577 3.83751 18.4573 3.34669 17.567 3.12393C16.6767 2.90116 15.7395 2.9572 14.8821 3.28445C14.0247 3.61171 13.2884 4.1944 12.773 4.95372C12.2575 5.71303 11.9877 6.61234 12 7.53V8.53C10.2426 8.57557 8.50127 8.18581 6.93101 7.39545C5.36074 6.60508 4.01032 5.43864 3 4C3 4 -1 13 8 17C5.94053 18.398 3.48716 19.0989 1 19C10 24 21 19 21 7.5C20.9991 7.22145 20.9723 6.94359 20.92 6.67C21.9406 5.66349 22.6608 4.39271 23 3Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Scoffee. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Modal -->
+    <div class="modal" id="cart-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Your Cart</h2>
+                <span class="close-modal" id="close-cart">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="cart-items" id="cart-items">
+                    <!-- Cart items will be dynamically added here -->
+                </div>
+                <div class="cart-summary" id="cart-summary">
+                    <div class="cart-subtotal">
+                        <span>Subtotal</span>
+                        <span id="cart-subtotal">HK$0.00</span>
+                    </div>
+                    <div class="cart-shipping">
+                        <span>Shipping</span>
+                        <span id="cart-shipping">HK$30.00</span>
+                    </div>
+                    <div class="cart-total">
+                        <span>Total</span>
+                        <span id="cart-total">HK$30.00</span>
+                    </div>
+                    <button class="checkout-btn" id="checkout-btn">Proceed to Checkout</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Checkout Form Modal -->
+    <div class="modal" id="checkout-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Checkout</h2>
+                <span class="close-modal" id="close-checkout">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="checkout-form" class="checkout-form">
+                    <div class="form-group">
+                        <label class="form-label" for="name">Full Name</label>
+                        <input type="text" id="name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="email">Email Address</label>
+                        <input type="email" id="email" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="phone">Phone Number</label>
+                        <input type="tel" id="phone" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="address">Shipping Address</label>
+                        <textarea id="address" class="form-control" rows="3" required></textarea>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label" for="city">City</label>
+                            <input type="text" id="city" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="zip">Postal Code</label>
+                            <input type="text" id="zip" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="country">Country</label>
+                        <select id="country" class="form-control" required>
+                            <option value="">Select Country</option>
+                            <option value="HK">Hong Kong</option>
+                            <option value="CN">China</option>
+                            <option value="SG">Singapore</option>
+                            <option value="JP">Japan</option>
+                            <option value="US">United States</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="payment">Payment Method</label>
+                        <select id="payment" class="form-control" required>
+                            <option value="">Select Payment Method</option>
+                            <option value="credit">Credit Card</option>
+                            <option value="paypal">PayPal</option>
+                            <option value="alipay">Alipay</option>
+                            <option value="wechat">WeChat Pay</option>
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <button type="button" class="btn back-to-cart" id="back-to-cart">Back to Cart</button>
+                        <button type="submit" class="btn checkout-btn">Complete Order</button>
+                    </div>
+                </form>
+                <div class="order-confirmation" id="order-confirmation">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M22 11.08V12C21.9988 14.1564 21.3005 16.2547 20.0093 17.9818C18.7182 19.709 16.9033 20.9725 14.8354 21.5839C12.7674 22.1953 10.5573 22.1219 8.53447 21.3746C6.51168 20.6273 4.78465 19.2461 3.61096 17.4371C2.43727 15.628 1.87979 13.4881 2.02168 11.3363C2.16356 9.18455 2.99721 7.13631 4.39828 5.49706C5.79935 3.85781 7.69279 2.71537 9.79619 2.24013C11.8996 1.7649 14.1003 1.98232 16.07 2.85999" stroke="#3a5a40" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M22 4L12 14.01L9 11.01" stroke="#3a5a40" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <h2>Thank You for Your Order!</h2>
+                    <p>Your order has been successfully placed and will be shipped within 1-3 business days.</p>
+                    <p>Order Number: <span class="order-number" id="order-number">#SCF-12345</span></p>
+                    <p>A confirmation email has been sent to your email address with the order details.</p>
+                    <button class="btn" id="continue-shopping">Continue Shopping</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+        
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        
+        // Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (navLinks.classList.contains('active')) {
+                        navLinks.classList.remove('active');
+                    }
+                }
+            });
+        });
+        
+        // Cart Functionality
+        const cartIcon = document.getElementById('cart-icon');
+        const cartModal = document.getElementById('cart-modal');
+        const closeCart = document.getElementById('close-cart');
+        const cartCount = document.getElementById('cart-count');
+        const cartItems = document.getElementById('cart-items');
+        const cartSubtotal = document.getElementById('cart-subtotal');
+        const cartShipping = document.getElementById('cart-shipping');
+        const cartTotal = document.getElementById('cart-total');
+        const checkoutBtn = document.getElementById('checkout-btn');
+        
+        // Checkout Modal
+        const checkoutModal = document.getElementById('checkout-modal');
+        const closeCheckout = document.getElementById('close-checkout');
+        const backToCart = document.getElementById('back-to-cart');
+        const checkoutForm = document.getElementById('checkout-form');
+        const orderConfirmation = document.getElementById('order-confirmation');
+        const continueShoppingBtn = document.getElementById('continue-shopping');
+        const orderNumber = document.getElementById('order-number');
+        
+        // Cart State
+        let cart = [];
+        
+        // Coating Options Selection
+        const coatingOptions = document.querySelectorAll('.coating-option');
+        
+        coatingOptions.forEach(option => {
+            option.addEventListener('click', function() {
+                // Find parent product card's coating options
+                const productCoatingOptions = this.closest('.coating-options').querySelectorAll('.coating-option');
+                
+                // Remove selected class from all options in this product
+                productCoatingOptions.forEach(opt => {
+                    opt.classList.remove('selected');
+                });
+                
+                // Add selected class to clicked option
+                this.classList.add('selected');
+            });
+        });
+        
+        // Add to Cart Button Functionality
+        const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
+        
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const productCard = this.closest('.product-card');
+                const productId = productCard.dataset.productId;
+                const productName = productCard.dataset.productName;
+                const productPrice = parseFloat(productCard.dataset.productPrice);
+                
+                // Get selected coating option
+                const selectedCoating = productCard.querySelector('.coating-option.selected');
+                
+                if (!selectedCoating) {
+                    alert('Please select a coating option before adding to cart.');
+                    return;
+                }
+                
+                const coatingType = selectedCoating.dataset.coating;
+                const coatingPrice = parseFloat(selectedCoating.dataset.coatingPrice);
+                
+                // Check if product with same coating is already in cart
+                const existingItemIndex = cart.findIndex(item => 
+                    item.id === productId && item.coating === coatingType
+                );
+                
+                if (existingItemIndex !== -1) {
+                    // Update quantity if product already in cart
+                    cart[existingItemIndex].quantity += 1;
+                } else {
+                    // Add new item to cart
+                    cart.push({
+                        id: productId,
+                        name: productName,
+                        price: productPrice,
+                        coating: coatingType,
+                        coatingPrice: coatingPrice,
+                        quantity: 1
+                    });
+                }
+                
+                // Update cart count
+                updateCartCount();
+                
+                // Show confirmation message
+                this.textContent = 'Added!';
+                this.style.backgroundColor = '#588157';
+                
+                setTimeout(() => {
+                    this.textContent = 'Add to Cart';
+                    this.style.backgroundColor = '';
+                }, 1500);
+            });
+        });
+        
+        // Update Cart Count
+        function updateCartCount() {
+            const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+            cartCount.textContent = totalItems;
+        }
+        
+        // Render Cart Items
+        function renderCartItems() {
+            if (cart.length === 0) {
+                cartItems.innerHTML = '<p class="empty-cart-message">Your cart is empty. Add some coffee!</p>';
+                checkoutBtn.disabled = true;
+                checkoutBtn.style.opacity = '0.5';
+                updateCartTotals();
+                return;
+            }
+            
+            checkoutBtn.disabled = false;
+            checkoutBtn.style.opacity = '1';
+            
+            let cartHTML = '';
+            
+            cart.forEach((item, index) => {
+                cartHTML += `
+                    <div class="cart-item" data-item-index="${index}">
+                        <div class="cart-item-img">
+                            ${item.name.charAt(0)}${item.name.split(' ')[1].charAt(0)}
+                        </div>
+                        <div class="cart-item-details">
+                            <h3 class="cart-item-title">${item.name}</h3>
+                            <p class="cart-item-coating">Coating: ${item.coating === 'sugar' ? 'Sugar' : 'Xylitol (Sugar-Free)'}</p>
+                            <p class="cart-item-price">HK$${(item.price + item.coatingPrice).toFixed(2)}</p>
+                        </div>
+                        <div class="cart-item-quantity">
+                            <button class="quantity-btn decrease-quantity" data-index="${index}">-</button>
+                            <input type="number" class="quantity-input" value="${item.quantity}" min="1" data-index="${index}">
+                            <button class="quantity-btn increase-quantity" data-index="${index}">+</button>
+                        </div>
+                        <div class="cart-item-remove" data-index="${index}">&times;</div>
+                    </div>
+                `;
+            });
+            
+            cartItems.innerHTML = cartHTML;
+            
+            // Add event listeners to quantity buttons and remove buttons
+            document.querySelectorAll('.decrease-quantity').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const index = parseInt(this.dataset.index);
+                    if (cart[index].quantity > 1) {
+                        cart[index].quantity -= 1;
+                        renderCartItems();
+                        updateCartCount();
+                    }
+                });
+            });
+            
+            document.querySelectorAll('.increase-quantity').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const index = parseInt(this.dataset.index);
+                    cart[index].quantity += 1;
+                    renderCartItems();
+                    updateCartCount();
+                });
+            });
+            
+            document.querySelectorAll('.quantity-input').forEach(input => {
+                input.addEventListener('change', function() {
+                    const index = parseInt(this.dataset.index);
+                    const newQuantity = parseInt(this.value);
+                    
+                    if (newQuantity >= 1) {
+                        cart[index].quantity = newQuantity;
+                    } else {
+                        this.value = 1;
+                        cart[index].quantity = 1;
+                    }
+                    
+                    renderCartItems();
+                    updateCartCount();
+                });
+            });
+            
+            document.querySelectorAll('.cart-item-remove').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const index = parseInt(this.dataset.index);
+                    cart.splice(index, 1);
+                    renderCartItems();
+                    updateCartCount();
+                });
+            });
+            
+            updateCartTotals();
+        }
+        
+        // Update Cart Totals
+        function updateCartTotals() {
+            const subtotal = cart.reduce((total, item) => {
+                return total + ((item.price + item.coatingPrice) * item.quantity);
+            }, 0);
+            
+            const shipping = cart.length > 0 ? 30 : 0;
+            const total = subtotal + shipping;
+            
+            cartSubtotal.textContent = `HK$${subtotal.toFixed(2)}`;
+            cartShipping.textContent = `HK$${shipping.toFixed(2)}`;
+            cartTotal.textContent = `HK$${total.toFixed(2)}`;
+        }
+        
+        // Open Cart Modal
+        cartIcon.addEventListener('click', () => {
+            renderCartItems();
+            cartModal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        });
+        
+        // Close Cart Modal
+        closeCart.addEventListener('click', () => {
+            cartModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+        
+        // Open Checkout Modal
+        checkoutBtn.addEventListener('click', () => {
+            if (cart.length === 0) return;
+            
+            cartModal.style.display = 'none';
+            checkoutModal.style.display = 'block';
+            checkoutForm.style.display = 'block';
+            orderConfirmation.style.display = 'none';
+        });
+        
+        // Close Checkout Modal
+        closeCheckout.addEventListener('click', () => {
+            checkoutModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+        
+        // Back to Cart Button
+        backToCart.addEventListener('click', () => {
+            checkoutModal.style.display = 'none';
+            cartModal.style.display = 'block';
+        });
+        
+        // Checkout Form Submission
+        checkoutForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Show order confirmation
+            checkoutForm.style.display = 'none';
+            orderConfirmation.style.display = 'block';
+            
+            // Generate random order number
+            const randomNum = Math.floor(10000 + Math.random() * 90000);
+            orderNumber.textContent = `#SCF-${randomNum}`;
+            
+            // Clear cart
+            cart = [];
+            updateCartCount();
+        });
+        
+        // Continue Shopping Button
+        continueShoppingBtn.addEventListener('click', () => {
+            checkoutModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+            
+            // Scroll to products section
+            const productsSection = document.getElementById('products');
+            window.scrollTo({
+                top: productsSection.offsetTop - 80,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Close modals when clicking outside
+        window.addEventListener('click', (e) => {
+            if (e.target === cartModal) {
+                cartModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+            
+            if (e.target === checkoutModal) {
+                checkoutModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+        
+        // Initialize all coating options with the first one selected
+        document.querySelectorAll('.product-card').forEach(card => {
+            const firstOption = card.querySelector('.coating-option');
+            if (firstOption) {
+                firstOption.classList.add('selected');
+            }
+        });
+    </script>
+</body>
+</html>
